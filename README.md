@@ -1,2 +1,3 @@
-# ProgFundCW1
-Coursework 1 ENU Prog Fund.
+# Spell checker program
+
+Coursework 1 ENU Prog Fund in C
