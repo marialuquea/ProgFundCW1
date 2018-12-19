@@ -18,13 +18,10 @@ Compiled using GCC Apple LLVM version 8.0.0
 
 
 The arguments that can be used are:
--------------------------------------------------------------
+
 |	-i <filename.c>		|	to check the words on a file 	|
-|-----------------------|-----------------------------------|
 |	-o <filename.c>		|	to output answer to a file 		|
-|-----------------------|-----------------------------------|
-|	-c 					|	to ignore case			 		|
-|-----------------------|-----------------------------------|
+|	-c 					      |	to ignore case			 	      	|
 
 They must be written after ./spell each time.
 
