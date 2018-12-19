@@ -19,6 +19,8 @@ Compiled using GCC Apple LLVM version 8.0.0
 
 The arguments that can be used are:
 
+| Argument input    | what it does                  |
+|-------------------|-------------------------------|
 |	-i <filename.c>		|	to check the words on a file 	|
 |	-o <filename.c>		|	to output answer to a file 		|
 |	-c 					      |	to ignore case			 	      	|
