@@ -8,7 +8,7 @@ Compiled using GCC Apple LLVM version 8.0.0
 
 **How to run the program:**
 
-1. Write in the console "make" to run the makefile, which will compile the program.
+1. Write in the console ```make``` to run the makefile, which will compile the program.
 
 2. The program will prompt the user to write a word if it is correct.
 
@@ -25,14 +25,17 @@ The arguments that can be used are:
 |	-o <filename.c>		|	to output answer to a file 		|
 |	-c 					      |	to ignore case			 	      	|
 
-They must be written after ./spell each time.
+They must be written after ```./spell``` each time.
 
 So to check if a word is correct ignoring the case, write:
-./spell -c
+
+```./spell -c```
+
 and then the program will prompt you to write the word.
 
 To check a file, outputing the answer to a new file, instead of to the console, ignoring the case, it will be:
-./spell -i <filename.c> -o output.txt -c
+
+```./spell -i <filename.c> -o output.txt -c```
 
 **Screenshots**
 
