@@ -42,8 +42,7 @@ void compare(char *word, int line, int output_flag, FILE *output_file)
 			//compare to words in dictionary
 			if (strcmp(word, word2)==0)
 			{
-				//if word appears in dictionary, its correct, so 
-				//do nothing
+				//if word appears in dictionary, its correct
 				break;
 			}
 			//reset index in word2 to start a new word 
@@ -56,7 +55,6 @@ void compare(char *word, int line, int output_flag, FILE *output_file)
 			if (output_flag)
 			{ 
 				fprintf(output_file, "The word '%s' is NOT correct in line %d.\n", word, line);
-				
 			}
 			//print result to console if there was no -o
 			else
@@ -70,7 +68,11 @@ void compare(char *word, int line, int output_flag, FILE *output_file)
 	fclose(file);
 }
 
-
+void append(char* s, char c) {
+        int len = strlen(s);
+        s[len] = c;
+        s[len+1] = '\0';
+}
 
 int main(int argc, char **argv)
 {
@@ -81,6 +83,7 @@ int main(int argc, char **argv)
 	char c;
 	char word[50];
 	char word_lower[50];
+	word_lower[0] = '\0';
 	int i = 0;
     int line_count = 1;
 
@@ -91,7 +94,6 @@ int main(int argc, char **argv)
 	//read arguments 
     for(int i = 0; i < argc; ++i)
     {
-
     	//check if there is an input file
     	if (strcmp(argv[i], "-i") == 0)
     	{
@@ -151,7 +153,7 @@ int main(int argc, char **argv)
 	else
 	{
 		//if there is no "-i"
-		printf("Type a word to check if its correct.\n");
+		printf("Type a word to check if its correct and press enter:\n");
 
 		//reads a line from the console (thus stdin) and stores it in "word"
 		fgets(word, 50, stdin);
@@ -163,29 +165,22 @@ int main(int argc, char **argv)
 		//ignore case if "-c" by lowering each case
 		if (case_flag == 1)
 		{
-			//loop through each character in the word
-			for(int i = 0; i < strlen(word); i++)
+			//for each char in uppercase word
+			for (int i = 0; word[i]; i++)
 			{
-				//store character in "c"
-				c = word[i];
-
-				//if c is a letter
-				if(isalpha(c))
-		        {
-		        	//make letter lower case and add to "word_lower"
-					word_lower[i++] = tolower(c);
-				}
-				//if next character is not a letter
-				else
-				{
-					//add null terminator at the next index in "word_lower"
-					word_lower[i++] = '\0';
-					//use function to compare this word with dictionary
-					compare(word_lower, line_count, output_flag, output_file);
-					//reset word_lower index to start next word 
-					i = 0;
-				}
+				//make every char lower case
+				word[i] = tolower(word[i]);
+				//add each new lowercase char to the new word
+				append(word_lower, word[i]);
 			}
+
+			//find length of word to add null terminator at the end
+			int i = strlen(word_lower);
+			//add null terminator to end of word
+			word_lower[i++] = '\0';
+
+			//compare lower case word to dictionary
+			compare(word_lower, line_count, output_flag, output_file);
 		}
 		else
 		{
