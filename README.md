@@ -1,6 +1,6 @@
 # Spell checker program in C
 
-##Programming Fundamentals (SET07109) 2017
+## Programming Fundamentals (SET07109) 2017
 
 ### Coursework 1 - Edinburgh Napier University
 
